@@ -14,19 +14,20 @@ func BenchmarkIteration(b *testing.B) {
 
 var c=0
 
-func R() {
+func R() int {
 	if c==10000-1 {
-		return
+		return c
 	}
-	c++
 	_=c+c
-	R()
+	c++
+	return R()
 
 }
 
 func BenchmarkRecursion(b *testing.B) {
 	for i:=0;i<b.N;i++ {
-		R()
+		v:=R()
+		_=v
 	}
 
 }
