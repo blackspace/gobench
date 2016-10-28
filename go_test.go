@@ -13,7 +13,6 @@ func BenchmarkIteration(b *testing.B) {
 }
 
 var c=0
-
 func R() int {
 	if c==10000-1 {
 		return c
@@ -26,6 +25,7 @@ func R() int {
 
 func BenchmarkRecursion(b *testing.B) {
 	for i:=0;i<b.N;i++ {
+		c=0
 		v:=R()
 		_=v
 	}
